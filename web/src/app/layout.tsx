@@ -1,0 +1,92 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import Nav from "@/components/nav";
+import Footer from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
+import { AuthProvider } from "@/contexts/auth-context";
+import { Analytics } from "@vercel/analytics/next";
+import { projects } from "@/data/projects";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://michaelfjones.dev"),
+  title: {
+    default: "Michael F. Jones — Developer",
+    template: "%s | Michael F. Jones",
+  },
+  description: "Front-end web developer in Fayetteville, AR.",
+  icons: {
+    icon: [{ url: "/mfj-logo-color.svg", type: "image/svg+xml" }],
+  },
+  openGraph: {
+    title: "Michael F. Jones — Developer",
+    description: "Front-end web developer in Fayetteville, AR.",
+    url: "/",
+    siteName: "Michael F. Jones",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/images/landing.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Michael F. Jones — Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Michael F. Jones — Developer",
+    description: "Front-end web developer in Fayetteville, AR.",
+    images: ["/images/landing.jpg"],
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const isProduction = process.env.NODE_ENV === "production";
+
+  return (
+    <html lang="en" className="dark" suppressHydrationWarning data-mode="dark" data-theme="palette-1">
+      <head>
+        <link rel="icon" type="image/svg+xml" href="/mfj-logo-color.svg" data-theme-favicon />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(()=>{try{const root=document.documentElement;const storedMode=localStorage.getItem("mj-theme-mode");const storedPalette=localStorage.getItem("mj-theme-palette");const mode=storedMode==="light"?"light":"dark";root.dataset.mode=mode;root.classList.toggle("dark",mode==="dark");if(storedPalette){root.dataset.theme=storedPalette;}}catch(e){}})();`,
+          }}
+        />
+      </head>
+      <body className={`antialiased min-h-dvh flex flex-col bg-background text-foreground relative`}>
+        <ThemeProvider>
+          <AuthProvider>
+            {/* Background layers: gradient + subtle noise */}
+            <div
+              aria-hidden
+              className="pointer-events-none fixed inset-0 -z-10"
+              style={{ background: "linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom))" }}
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none fixed inset-0 -z-10"
+              style={{
+                background:
+                  "radial-gradient(1000px 600px at 10% -10%, var(--gradient-radial-1) 0%, transparent 60%), radial-gradient(800px 400px at 90% -10%, var(--gradient-radial-2) 0%, transparent 55%)",
+              }}
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none fixed inset-0 -z-10 opacity-[0.06] mix-blend-overlay bg-[url('/noise.svg')]"
+            />
+
+            <Nav hasProjects={projects.length > 0} />
+            <main className="flex-1 container mx-auto px-4 py-10 sm:py-12">{children}</main>
+            <Footer />
+            {isProduction && <Analytics />}
+          </AuthProvider>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
