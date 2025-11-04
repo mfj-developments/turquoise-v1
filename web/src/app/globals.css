@@ -668,6 +668,115 @@ html[data-mode="dark"][data-theme="palette-5"] {
   --badge-border: rgba(129, 151, 172, 0.34);
 }
 
+/* ========================================
+   KATHRYN INTERIOR DESIGN THEME
+   Turquoise + Cream + Black aesthetic
+   ======================================== */
+
+html[data-mode="light"][data-theme="palette-kathryn"] {
+  color-scheme: light;
+  --background: #fafaf8;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #14b8a6;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f0e8;
+  --secondary-foreground: #1a1a1a;
+  --muted: #e5e5e5;
+  --muted-foreground: #737373;
+  --accent: #0d9488;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --border: #e2d9d3;
+  --input: #e2d9d3;
+  --ring: #14b8a6;
+  --chart-1: #14b8a6;
+  --chart-2: #0d9488;
+  --chart-3: #f5f0e8;
+  --chart-4: #737373;
+  --chart-5: #1a1a1a;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #14b8a6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f5f0e8;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #e2d9d3;
+  --sidebar-ring: #14b8a6;
+  --gradient-top: #fafaf8;
+  --gradient-bottom: #f5f0e8;
+  --gradient-radial-1: rgba(20, 184, 166, 0.25);
+  --gradient-radial-2: rgba(245, 240, 232, 0.35);
+  --text-gradient-start: #14b8a6;
+  --text-gradient-mid: #0d9488;
+  --text-gradient-end: #1a1a1a;
+  --panel-gradient-start: rgba(20, 184, 166, 0.12);
+  --panel-gradient-end: rgba(245, 240, 232, 0.18);
+  --cta-gradient-start: rgba(20, 184, 166, 0.2);
+  --cta-gradient-end: rgba(13, 148, 136, 0.25);
+  --glow-primary: rgba(20, 184, 166, 0.35);
+  --glow-secondary: rgba(245, 240, 232, 0.4);
+  --shadow-primary: rgba(20, 184, 166, 0.25);
+  --badge-surface: rgba(20, 184, 166, 0.12);
+  --badge-foreground: #1a1a1a;
+  --badge-border: rgba(20, 184, 166, 0.25);
+}
+
+html[data-mode="dark"][data-theme="palette-kathryn"] {
+  color-scheme: dark;
+  --background: #0f1714;
+  --foreground: #fafaf8;
+  --card: #1a2521;
+  --card-foreground: #fafaf8;
+  --popover: #1a2521;
+  --popover-foreground: #fafaf8;
+  --primary: #2dd4bf;
+  --primary-foreground: #0f1714;
+  --secondary: #14b8a6;
+  --secondary-foreground: #fafaf8;
+  --muted: #1e2d28;
+  --muted-foreground: #a3a3a3;
+  --accent: #0d9488;
+  --accent-foreground: #fafaf8;
+  --destructive: #ef4444;
+  --border: rgba(250, 250, 248, 0.12);
+  --input: rgba(250, 250, 248, 0.16);
+  --ring: #2dd4bf;
+  --chart-1: #2dd4bf;
+  --chart-2: #14b8a6;
+  --chart-3: #0d9488;
+  --chart-4: #a3a3a3;
+  --chart-5: #fafaf8;
+  --sidebar: #1a2521;
+  --sidebar-foreground: #fafaf8;
+  --sidebar-primary: #2dd4bf;
+  --sidebar-primary-foreground: #0f1714;
+  --sidebar-accent: rgba(20, 184, 166, 0.35);
+  --sidebar-accent-foreground: #fafaf8;
+  --sidebar-border: rgba(250, 250, 248, 0.12);
+  --sidebar-ring: #2dd4bf;
+  --gradient-top: #121d19;
+  --gradient-bottom: #070a09;
+  --gradient-radial-1: rgba(45, 212, 191, 0.3);
+  --gradient-radial-2: rgba(20, 184, 166, 0.25);
+  --text-gradient-start: #2dd4bf;
+  --text-gradient-mid: #14b8a6;
+  --text-gradient-end: #fafaf8;
+  --panel-gradient-start: rgba(45, 212, 191, 0.25);
+  --panel-gradient-end: rgba(13, 148, 136, 0.35);
+  --cta-gradient-start: rgba(45, 212, 191, 0.35);
+  --cta-gradient-end: rgba(13, 148, 136, 0.45);
+  --glow-primary: rgba(45, 212, 191, 0.4);
+  --glow-secondary: rgba(20, 184, 166, 0.35);
+  --shadow-primary: rgba(45, 212, 191, 0.3);
+  --badge-surface: rgba(45, 212, 191, 0.22);
+  --badge-foreground: #fafaf8;
+  --badge-border: rgba(45, 212, 191, 0.35);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -678,10 +787,72 @@ html[data-mode="dark"][data-theme="palette-5"] {
 }
 
 @layer utilities {
+  /* Typography Utilities */
+  .font-serif {
+    font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  }
+
+  .font-sans {
+    font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
   .fluid-heading {
     font-size: clamp(2.75rem, 2.2rem + 2vw, 4.5rem);
     line-height: 1.05;
     letter-spacing: -0.02em;
+    font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  }
+
+  .heading-xl {
+    font-size: clamp(3rem, 2.5rem + 2vw, 5rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+  }
+
+  .heading-lg {
+    font-size: clamp(2rem, 1.5rem + 1.5vw, 3.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+  }
+
+  .heading-md {
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 2.5rem);
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+  }
+
+  .heading-sm {
+    font-size: clamp(1.25rem, 1rem + 0.5vw, 1.75rem);
+    line-height: 1.3;
+    letter-spacing: 0;
+    font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+  }
+
+  .eyebrow-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+  }
+
+  .body-lg {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+  }
+
+  .body-base {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-family: var(--font-inter), 'Inter', sans-serif;
   }
 
   .mask-gradient-b-40 {
@@ -694,5 +865,23 @@ html[data-mode="dark"][data-theme="palette-5"] {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  /* Full-width hero section */
+  .hero-full-width {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+  }
+
+  /* Editorial image treatment */
+  .image-editorial {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .image-editorial:hover {
+    transform: scale(1.02);
   }
 }

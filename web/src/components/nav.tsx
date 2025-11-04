@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Instagram, Facebook, Mail } from "lucide-react";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import ThemeControls from "@/components/theme-controls";
-import LogoMark from "@/components/logo-mark";
 import { Tooltip } from "@/components/tooltip";
 
 type NavProps = {
@@ -18,19 +17,23 @@ export default function Nav({ hasProjects = true }: NavProps) {
   const [open, setOpen] = useState(false);
 
   const linkDefinitions = [
-    { href: "/#about", label: "About", requiresProjects: false },
-    { href: "/#projects", label: "Projects", requiresProjects: true },
-    { href: "/#contact", label: "Contact", requiresProjects: false },
+    { href: "/services", label: "Services", requiresProjects: false },
+    { href: "/portfolio", label: "Portfolio", requiresProjects: true },
+    { href: "/journal", label: "Journal", requiresProjects: false },
+    { href: "/about", label: "About", requiresProjects: false },
+    { href: "/contact", label: "Contact", requiresProjects: false },
   ] as const;
 
   const activeLinks = linkDefinitions.filter((link) => (link.requiresProjects ? hasProjects : true));
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/60 supports-[backdrop-filter]:bg-background/45 backdrop-blur-md">
-      <div className="container mx-auto flex h-14 items-center justify-between px-4">
+    <header className="sticky top-0 z-40 w-full border-b bg-background/95 supports-[backdrop-filter]:bg-background/90 backdrop-blur-md">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="group flex items-center gap-3 text-foreground">
-          <LogoMark className="h-8 w-8 shrink-0 transition-transform duration-200 group-hover:scale-105" />
-          <span className="font-semibold tracking-tight text-sm sm:text-base">Michael F. Jones</span>
+          <span className="font-serif text-xl sm:text-2xl font-medium tracking-tight transition-colors group-hover:text-primary">
+            Kathryn J. LeMaster
+          </span>
+          <span className="hidden md:inline text-xs text-muted-foreground tracking-widest uppercase">Art & Design</span>
         </Link>
 
         <nav className="hidden md:block">
@@ -48,18 +51,18 @@ export default function Nav({ hasProjects = true }: NavProps) {
         </nav>
 
         <div className="hidden md:flex items-center gap-3 text-foreground/80">
-          <Tooltip label="GitHub">
-            <Link aria-label="GitHub" href="https://github.com/mfj-developments" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">
-              <Github className="h-5 w-5" />
+          <Tooltip label="Instagram">
+            <Link aria-label="Instagram" href="https://instagram.com/kathrynjlemaster" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+              <Instagram className="h-5 w-5" />
             </Link>
           </Tooltip>
-          <Tooltip label="LinkedIn">
-            <Link aria-label="LinkedIn" href="https://www.linkedin.com/in/michael-jones-58a03124b/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">
-              <Linkedin className="h-5 w-5" />
+          <Tooltip label="Facebook">
+            <Link aria-label="Facebook" href="https://facebook.com/kathrynjlemaster" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+              <Facebook className="h-5 w-5" />
             </Link>
           </Tooltip>
           <Tooltip label="Email">
-            <Link aria-label="Email" href="mailto:mfjdevelopments@gmail.com" className="hover:text-foreground transition-colors">
+            <Link aria-label="Email" href="mailto:kathryn@kathrynjlemaster.com" className="hover:text-primary transition-colors">
               <Mail className="h-5 w-5" />
             </Link>
           </Tooltip>
@@ -93,13 +96,13 @@ export default function Nav({ hasProjects = true }: NavProps) {
 
                 <div className="flex flex-col gap-6">
                   <div className="flex justify-between gap-3">
-                    <Link aria-label="GitHub" href="https://github.com/mfj-developments" target="_blank" rel="noreferrer" className="flex h-12 flex-1 items-center justify-center rounded-xl border text-foreground/80 transition-colors hover:text-foreground">
-                      <Github className="h-5 w-5" />
+                    <Link aria-label="Instagram" href="https://instagram.com/kathrynjlemaster" target="_blank" rel="noreferrer" className="flex h-12 flex-1 items-center justify-center rounded-xl border text-foreground/80 transition-colors hover:text-primary">
+                      <Instagram className="h-5 w-5" />
                     </Link>
-                    <Link aria-label="LinkedIn" href="https://www.linkedin.com/in/michael-jones-58a03124b/" target="_blank" rel="noreferrer" className="flex h-12 flex-1 items-center justify-center rounded-xl border text-foreground/80 transition-colors hover:text-foreground">
-                      <Linkedin className="h-5 w-5" />
+                    <Link aria-label="Facebook" href="https://facebook.com/kathrynjlemaster" target="_blank" rel="noreferrer" className="flex h-12 flex-1 items-center justify-center rounded-xl border text-foreground/80 transition-colors hover:text-primary">
+                      <Facebook className="h-5 w-5" />
                     </Link>
-                    <Link aria-label="Email" href="mailto:mfjdevelopments@gmail.com" className="flex h-12 flex-1 items-center justify-center rounded-xl border text-foreground/80 transition-colors hover:text-foreground">
+                    <Link aria-label="Email" href="mailto:kathryn@kathrynjlemaster.com" className="flex h-12 flex-1 items-center justify-center rounded-xl border text-foreground/80 transition-colors hover:text-primary">
                       <Mail className="h-5 w-5" />
                     </Link>
                   </div>
