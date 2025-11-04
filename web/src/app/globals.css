@@ -51,6 +51,9 @@
   --badge-border: rgba(0, 0, 0, 0.12);
 }
 
+/* Import Google Fonts for Interior Design Theme */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
 /* Palette definitions */
 html[data-mode="light"][data-theme="palette-default"] {
   color-scheme: light;
